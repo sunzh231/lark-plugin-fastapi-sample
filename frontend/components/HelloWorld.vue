@@ -1,40 +1,34 @@
-<script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div>
+    1231312312
+    <button @click="addRow">test</button>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<script setup>
+import { bitable } from '@lark-base-open/js-sdk';
+// import axios from 'axios';
+// const data = ref(null);
+
+const addRow = async () => {
+  const table = await bitable.base.getActiveTable();
+
+  const field = await table.getField('文本');
+
+  const res = await table.addRecord({
+    fields: {
+      [field.id]: 'new text field value'
+    }
+  });
 }
-</style>
+// const testApi = async () => {
+//   const res = await axios.post('https://recstar-api.birdycloud.com/api/public/quote/list', {page: 1, limit: 10})
+//   console.log(res)
+//   data.value = res.data
+// }
+
+// testApi()
+</script>
+
+
+<style scoped></style>

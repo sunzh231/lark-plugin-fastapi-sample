@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: init dev
+.PHONY: init
 
 init:
 	@poetry install
