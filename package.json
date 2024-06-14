@@ -6,16 +6,19 @@
   "scripts": {
     "dev": "bunx --bun vite",
     "watch": "bunx --bun vite build --watch",
-    "build": "bunx --bun vite build",
+    "build": "bunx --bun vite build && bunx --bun vite build --ssr",
     "preview": "bunx --bun vite preview"
   },
   "dependencies": {
+    "@inertiajs/vue3": "^1.2.0",
     "@lark-base-open/js-sdk": "^0.4.0",
-    "vue": "^3.4.21"
+    "@vue/server-renderer": "^3.4.27",
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "foreman": "^3.0.1",
+    "sass": "^1.77.5",
     "vite": "^5.3.0"
   }
 }
