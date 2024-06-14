@@ -214,7 +214,7 @@ class Inertia:
                             {head}
                             {css_link}
                         </head>
-                        <body>
+                        <body class="bg-[#50d71e]">
                             {body}
                             <script type="module" src="{self._inertia_files.js_file}"></script>
                        </body>
