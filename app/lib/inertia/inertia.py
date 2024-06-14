@@ -72,7 +72,8 @@ class Inertia:
         Get the keys of the partial data
         :return: List of keys
         """
-        return self._request.headers.get("X-Inertia-Partial-Data", "").split(",")
+        return self._request.headers.get("X-Inertia-Partial-Data",
+                                         "").split(",")
 
     @property
     def _is_inertia_request(self) -> bool:
@@ -89,9 +90,8 @@ class Inertia:
         :return: True if the version is stale, False otherwise
         """
         return bool(
-            self._request.headers.get("X-Inertia-Version", self._config.version)
-            != self._config.version
-        )
+            self._request.headers.get("X-Inertia-Version", self._config.version
+                                      ) != self._config.version)
 
     @property
     def _is_a_partial_render(self) -> bool:
@@ -99,11 +99,9 @@ class Inertia:
         Check if the request is a partial render
         :return: True if the request is a partial render, False otherwise
         """
-        return (
-            "X-Inertia-Partial-Data" in self._request.headers
-            and self._request.headers.get("X-Inertia-Partial-Component", "")
-            == self._component
-        )
+        return ("X-Inertia-Partial-Data" in self._request.headers
+                and self._request.headers.get("X-Inertia-Partial-Component",
+                                              "") == self._component)
 
     def _get_page_data(self) -> Dict[str, Any]:
         """
@@ -122,22 +120,17 @@ class Inertia:
         Get the flashed messages from the session (pop them from the session)
         :return: List of flashed messages
         """
-        return (
-            cast(list[FlashMessage], self._request.session.pop("_messages"))
-            if "_messages" in self._request.session
-            else []
-        )
+        return (cast(list[FlashMessage],
+                     self._request.session.pop("_messages"))
+                if "_messages" in self._request.session else [])
 
     def _get_flashed_errors(self) -> dict[str, str]:
         """
         Get the flashed errors from the session (pop them from the session)
         :return: Dict of flashed errors
         """
-        return (
-            cast(dict[str, str], self._request.session.pop("_errors"))
-            if "_errors" in self._request.session
-            else {}
-        )
+        return (cast(dict[str, str], self._request.session.pop("_errors"))
+                if "_errors" in self._request.session else {})
 
     def _set_inertia_files(self) -> None:
         """
@@ -151,18 +144,18 @@ class Inertia:
 
             css_file = manifest[f"frontend/main.{extension}"]["css"][0]
             js_file = manifest[f"frontend/main.{extension}"]["file"]
-            self._inertia_files = self.InertiaFiles(
-                css_file=f"/frontend/{css_file}", js_file=f"/{js_file}"
-            )
+            self._inertia_files = self.InertiaFiles(css_file=f"/{css_file}",
+                                                    js_file=f"/{js_file}")
         else:
             extension = "ts" if self._config.use_typescript else "js"
             js_file = f"{self._config.dev_url}/frontend/main.{extension}"
-            self._inertia_files = self.InertiaFiles(css_file=None, js_file=js_file)
+            self._inertia_files = self.InertiaFiles(css_file=None,
+                                                    js_file=js_file)
 
     @classmethod
     def _deep_transform_callables(
-        cls, prop: Union[Callable[..., Any], Dict[str, Any], BaseModel, Any]
-    ) -> Any:
+        cls, prop: Union[Callable[..., Any], Dict[str, Any], BaseModel,
+                         Any]) -> Any:
         """
         Deeply transform callables in a dictionary, evaluating them if they are callables
         If the value is a BaseModel, it will call the model_dump method.
@@ -211,9 +204,7 @@ class Inertia:
         """
         css_link = (
             f'<link rel="stylesheet" href="{self._inertia_files.css_file}">'
-            if self._inertia_files.css_file
-            else ""
-        )
+            if self._inertia_files.css_file else "")
         return f"""
                    <!DOCTYPE html>
                    <html>
@@ -293,18 +284,16 @@ class Inertia:
         Redirect back to the previous page
         :return: RedirectResponse
         """
-        status_code = (
-            status.HTTP_307_TEMPORARY_REDIRECT
-            if self._request.method == "GET"
-            else status.HTTP_303_SEE_OTHER
-        )
-        return RedirectResponse(
-            url=self._request.headers["Referer"], status_code=status_code
-        )
+        status_code = (status.HTTP_307_TEMPORARY_REDIRECT
+                       if self._request.method == "GET" else
+                       status.HTTP_303_SEE_OTHER)
+        return RedirectResponse(url=self._request.headers["Referer"],
+                                status_code=status_code)
 
     async def render(
-        self, component: str, props: Optional[Dict[str, Any]] = None
-    ) -> InertiaResponse:
+            self,
+            component: str,
+            props: Optional[Dict[str, Any]] = None) -> InertiaResponse:
         """
         Render the page
         If the request is an Inertia request, it will return a JSONResponse
@@ -316,13 +305,11 @@ class Inertia:
         """
         if self._config.use_flash_messages:
             self._props.update(
-                {self._config.flash_message_key: self._get_flashed_messages()}
-            )
+                {self._config.flash_message_key: self._get_flashed_messages()})
 
         if self._config.use_flash_errors:
             self._props.update(
-                {self._config.flash_error_key: self._get_flashed_errors()}
-            )
+                {self._config.flash_error_key: self._get_flashed_errors()})
 
         self._component = component
         self._props.update(props or {})
@@ -346,8 +333,7 @@ class Inertia:
 
         # Fallback to server-side template rendering
         page_json = json.dumps(
-            json.dumps(self._get_page_data(), cls=self._config.json_encoder)
-        )
+            json.dumps(self._get_page_data(), cls=self._config.json_encoder))
         body = f"<div id='app' data-page='{page_json}'></div>"
         html_content = self._get_html_content("", body)
 
@@ -355,8 +341,7 @@ class Inertia:
 
 
 def inertia_dependency_factory(
-    config_: InertiaConfig,
-) -> Callable[[Request], Inertia]:
+    config_: InertiaConfig, ) -> Callable[[Request], Inertia]:
     """
     Create a dependency for Inertia, passing the configuration
     :param config_: InertiaConfig object

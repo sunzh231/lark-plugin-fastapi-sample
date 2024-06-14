@@ -12,8 +12,6 @@ dev-frontend:
 dev:
 	@nf start
 
-build-frontend:
+prod:
 	@bun run build
-
-deploy: build-frontend
-	@git push -f dokku master
+	@poetry run uvicorn main:app --host 0.0.0.0
