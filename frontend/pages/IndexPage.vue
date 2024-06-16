@@ -1,14 +1,3 @@
-<script setup>
-import { Link } from "@inertiajs/vue3";
-import { ref } from "vue";
-
-defineProps({
-  message: String,
-});
-
-const counter = ref(0);
-</script>
-
 <template>
   <main>
     <Link href="/2">Link to other page</Link>
@@ -25,6 +14,24 @@ const counter = ref(0);
   </main>
 </template>
 
+<script setup>
+import { Link } from "@inertiajs/vue3";
+import { ref } from "vue";
+
+defineProps({
+  message: String,
+});
+
+const counter = ref(0);
+</script>
+
+<script>
+import MainLayout from '@/layouts/main.vue';
+export default {
+  layout: MainLayout,
+};
+</script>
+
 <style scoped>
 main {
   min-height: 100dvh;
@@ -34,7 +41,8 @@ main {
   place-items: center;
   place-content: center;
   flex-direction: column;
-  > * {
+
+  >* {
     max-width: 50%;
   }
 
@@ -50,4 +58,26 @@ main {
     }
   }
 }
-</style>
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}</style>

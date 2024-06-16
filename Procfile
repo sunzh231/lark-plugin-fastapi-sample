@@ -1,2 +1,2 @@
 frontend: bun watch
-backend: sleep 5 && poetry run uvicorn main:app --reload --host 0.0.0.0
+backend: sleep 20 && poetry run uvicorn main:app --reload --host 0.0.0.0
