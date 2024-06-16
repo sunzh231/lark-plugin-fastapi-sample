@@ -26,7 +26,7 @@ const counter = ref(0);
 </script>
 
 <script>
-import MainLayout from '@/layouts/main.vue';
+import MainLayout from '@/layouts/Main.vue';
 export default {
   layout: MainLayout,
 };

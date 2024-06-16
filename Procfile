@@ -1,2 +1,2 @@
 frontend: bun watch
-backend: sleep 20 && poetry run uvicorn main:app --reload --host 0.0.0.0
+backend: sleep 15 && poetry run uvicorn main:app --reload --reload-include templates/manifest.json --host 0.0.0.0

@@ -2,7 +2,7 @@
   <CommonLayout>
     <div class="main-layout">
       <a-layout style="height: 400px;">
-        <a-layout-header>Header</a-layout-header>
+        <a-layout-header class="h-[30px] text-left">Header</a-layout-header>
         <a-layout-content>
           <slot />
         </a-layout-content>
@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import CommonLayout from '@/layouts/common.vue';
+import CommonLayout from '@/layouts/Common.vue';
 </script>
