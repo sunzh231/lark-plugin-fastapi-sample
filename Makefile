@@ -6,9 +6,6 @@ init:
 	@poetry install
 	@bun install
 
-dev-frontend:
-	@bun dev
-
 dev:
 	@nf start
 
