@@ -186,6 +186,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-templates/*
-!templates/.keep

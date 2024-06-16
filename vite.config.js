@@ -25,9 +25,6 @@ export default defineConfig({
     },
   },
   build: {
-    watch: {
-      include: "frontend/**",
-    },
     manifest: "manifest.json",
     outDir: "templates",
     rollupOptions: {
