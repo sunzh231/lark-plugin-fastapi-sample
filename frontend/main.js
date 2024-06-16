@@ -1,7 +1,7 @@
 import "./assets/styles/index.scss";
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
-import {resolvePageComponent} from "@/helper.js";
+import { resolvePageComponent } from "@/helper.js";
 
 createInertiaApp({
   resolve: (name) => {

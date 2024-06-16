@@ -111,7 +111,7 @@ class Inertia:
         return {
             "component": self._component,
             "props": self._build_props(),
-            "url": str(self._request.url),
+            "url": str(self._request.url).replace("http:", ""),
             "version": self._config.version,
         }
 

@@ -1,7 +1,6 @@
 import os
 from typing import Annotated
 from pydantic import BaseModel, EmailStr
-from fastapi.templating import Jinja2Templates
 from fastapi import FastAPI, Depends
 from fastapi.responses import RedirectResponse
 from fastapi.exceptions import RequestValidationError
@@ -22,11 +21,11 @@ app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="secret_key")
 app.add_exception_handler(
     InertiaVersionConflictException,
-    inertia_version_conflict_exception_handler,  # type: ignore[arg-type]
+    inertia_version_conflict_exception_handler,
 )
 app.add_exception_handler(
     RequestValidationError,
-    inertia_request_validation_exception_handler,  # type: ignore[arg-type]
+    inertia_request_validation_exception_handler,
 )
 
 manifest_json = os.path.join(os.path.dirname(__file__), "templates",
