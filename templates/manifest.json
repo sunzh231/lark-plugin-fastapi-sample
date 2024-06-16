@@ -1,0 +1,45 @@
+{
+  "__plugin-vue_export-helper-DlAUqK2U.js": {
+    "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
+    "name": "_plugin-vue_export-helper"
+  },
+  "frontend/main.js": {
+    "file": "assets/main-qIbk7E4-.js",
+    "name": "main",
+    "src": "frontend/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "frontend/pages/IndexPage.vue",
+      "frontend/pages/OtherPage.vue"
+    ],
+    "css": [
+      "assets/main-DFgCPmmY.css"
+    ]
+  },
+  "frontend/pages/IndexPage.vue": {
+    "file": "assets/IndexPage-CuCaL9zV.js",
+    "name": "IndexPage",
+    "src": "frontend/pages/IndexPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/main.js",
+      "__plugin-vue_export-helper-DlAUqK2U.js"
+    ],
+    "css": [
+      "assets/IndexPage-Xd8LqoZo.css"
+    ]
+  },
+  "frontend/pages/OtherPage.vue": {
+    "file": "assets/OtherPage-BF1WdD3d.js",
+    "name": "OtherPage",
+    "src": "frontend/pages/OtherPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/main.js",
+      "__plugin-vue_export-helper-DlAUqK2U.js"
+    ],
+    "css": [
+      "assets/OtherPage-nhv-_QZP.css"
+    ]
+  }
+}
