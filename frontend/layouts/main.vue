@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import CommonLayout from '@/layouts/common.vue'; '
+import CommonLayout from '@/layouts/common.vue';
 </script>
