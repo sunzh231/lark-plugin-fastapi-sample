@@ -16,6 +16,7 @@
     "vue": "^3.4.27"
   },
   "devDependencies": {
+    "@arco-design/web-vue": "^2.55.3",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
     "foreman": "^3.0.1",
