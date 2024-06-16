@@ -17,6 +17,7 @@ pydantic = "^2.7.4"
 lib = "^4.0.0"
 starlette = "^0.37.2"
 baseopensdk = {url = "https://lf3-static.bytednsdoc.com/obj/eden-cn/lmeh7phbozvhoz/base-open-sdk/baseopensdk-0.0.13-py3-none-any.whl"}
+watchfiles = "^0.22.0"
 
 [build-system]
 requires = ["poetry-core"]

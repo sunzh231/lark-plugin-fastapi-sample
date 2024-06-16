@@ -2,7 +2,7 @@
   <CommonLayout>
     <div class="main-layout">
       <a-layout style="height: 400px;">
-        <a-layout-header class="h-[30px] text-right">Header</a-layout-header>
+        <a-layout-header class="h-[30px] text-left  aaa">Header</a-layout-header>
         <a-layout-content>
           <slot />
         </a-layout-content>

@@ -4,7 +4,7 @@
     "name": "_plugin-vue_export-helper"
   },
   "frontend/main.js": {
-    "file": "assets/main-qIbk7E4-.js",
+    "file": "assets/main-BuMlSy1H.js",
     "name": "main",
     "src": "frontend/main.js",
     "isEntry": true,
@@ -17,7 +17,7 @@
     ]
   },
   "frontend/pages/IndexPage.vue": {
-    "file": "assets/IndexPage-CuCaL9zV.js",
+    "file": "assets/IndexPage-BEtZL3vP.js",
     "name": "IndexPage",
     "src": "frontend/pages/IndexPage.vue",
     "isDynamicEntry": true,
@@ -30,7 +30,7 @@
     ]
   },
   "frontend/pages/OtherPage.vue": {
-    "file": "assets/OtherPage-BF1WdD3d.js",
+    "file": "assets/OtherPage-CI4wfHv-.js",
     "name": "OtherPage",
     "src": "frontend/pages/OtherPage.vue",
     "isDynamicEntry": true,
